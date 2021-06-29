@@ -1,11 +1,11 @@
 import client from './client';
 
 export const write = (formData) => client.post(
-    '/write.php',
+    '/blog/write.php',
     formData,
 )
 
 export const list = (formData) => client.post(
-    '/list.php',
+    '/blog/list.php',
     formData
 )
