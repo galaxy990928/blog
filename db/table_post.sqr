@@ -3,6 +3,6 @@ CREATE TABLE POST(
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
     create_time DATETIME DEFAULT now(),
-    author varchar(255) NOT NULL,
+    author varchar(20) NOT NULL,
     FOREIGN KEY(author) REFERENCES USER(id)
 );
