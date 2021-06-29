@@ -1,0 +1,8 @@
+CREATE TABLE POST(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    create_time DATETIME DEFAULT now(),
+    author varchar(255) NOT NULL,
+    FOREIGN KEY(author) REFERENCES USER(id)
+);
