@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import styled from 'styled-components';
-import 'react-quill/dist/quill.snow.css';
 
 const Wrapper = styled.div`
     .ql-container {

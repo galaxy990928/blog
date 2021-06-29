@@ -40,7 +40,7 @@ const HeaderContainer = () => {
     }, [setUsername, setId, auth])
     
     return (
-        <>
+        <div>
             <Header
                 id={id}
                 username={username} 
@@ -49,7 +49,7 @@ const HeaderContainer = () => {
                 logout={logoutCallback}
             />
             { menu && <Menu /> }
-        </>
+        </div>
     )
 }
 
