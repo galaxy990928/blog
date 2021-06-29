@@ -9,13 +9,13 @@ import { Route } from 'react-router-dom';
 
 const App = () => {
   return (
-    <>
+    <div>
       <Route path="/" component={MainPage} exact/> 
       <Route path="/login" component={LoginPage} />
       <Route path="/register" component={RegisterPage} />
       <Route path="/edit" component={PostEditPage} />
       <Route path="/write" component={PostWritePage} />
-    </>
+    </div>
   )
 }
 
