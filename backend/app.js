@@ -4,6 +4,6 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, '../frontend/build')))
 
-app.listen(4000, () => {
+app.listen(4001, () => {
     console.log(`Server listening on http://localhost:4000`)
 })
