@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { write, changeField } from '../../modules/post';
+import { write, changeField, resetField } from '../../modules/post';
 import { withRouter } from 'react-router-dom';
 import PostWrite from '../../components/post/PostWrite';
 
 
 const PostWriteContainer = ({history}) => {
-    const [isSubmit, setIsSubmit] = useState(false);
     const dispatch = useDispatch();
     const { title, content, hashtag, hashtags, postError } = useSelector( ({post}) => ({
         title : post.title,
@@ -30,7 +29,6 @@ const PostWriteContainer = ({history}) => {
         formData.append('jwt', localStorage.getItem('jwt'));
         
         dispatch(write(formData));
-        setIsSubmit(true);
     }
 
     const ChangeMediaText = (text) => {
@@ -90,15 +88,17 @@ const PostWriteContainer = ({history}) => {
     
 
     useEffect(() => {
-        if(isSubmit && postError === null) {
+        if(postError === true) {
             alert('글쓰기가 완료되었습니다.');
+            dispatch(resetField());
             history.push('/');
         } 
-        else if(postError !== null) {
+        else if(postError !== null && postError !== true) {
             alert('글쓰기를 실패하였습니다.');
+            dispatch(resetField());
         }
-        setIsSubmit(false);
-    }, [isSubmit, postError, history])
+    }, [postError, history])
+
     return (
         <div>
             <PostWrite onSubmit={onSubmit} title={title} content={content} onChange={onChange} 

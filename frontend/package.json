@@ -36,5 +36,5 @@
     ]
   },
   "browserslist": [],
-  "proxy": "http://localhost"
+  "proxy": "http://localhost:80"
 }

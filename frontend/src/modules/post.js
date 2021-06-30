@@ -6,10 +6,12 @@ import createRequestSaga, {createRequestActionTypes} from '../lib/createRequestS
 const [WRITE, WRITE_SUCCESS, WRITE_FAILURE] = createRequestActionTypes('post/WRITE');
 const [LIST, LIST_SUCCESS, LIST_FAILURE] = createRequestActionTypes('post/LIST');
 const CHANGE_FIELD = 'post/CHANGE_FIELD';
+const RESET_FIELD = 'post/RESET_FIELD';
 
 export const write = createAction(WRITE, formData => formData);
 export const list  = createAction(LIST, formData => formData);
-export const changeField = createAction(CHANGE_FIELD, ({key, value}) => ({key, value}))
+export const changeField = createAction(CHANGE_FIELD, ({key, value}) => ({key, value}));
+export const resetField = createAction(RESET_FIELD);
 
 const listSaga = createRequestSaga(LIST, postAPI.list);
 const writeSaga = createRequestSaga(WRITE, postAPI.write);
@@ -41,7 +43,7 @@ const post = handleActions(
         [WRITE_SUCCESS] : (state, paylaod) => (
             {
                 ...state,
-                postError : null,
+                postError : true,
             }
         ),
         [WRITE_FAILURE] : (state, {payload : e}) => (
@@ -53,6 +55,9 @@ const post = handleActions(
         [CHANGE_FIELD] : (state, {payload : {key, value}}) => ({
             ...state,
             [key] : value,
+        }),
+        [RESET_FIELD] : (state, payload) => ({
+            ...initialState,
         })
     },
     initialState
