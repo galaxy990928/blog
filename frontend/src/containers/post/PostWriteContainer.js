@@ -97,7 +97,7 @@ const PostWriteContainer = ({history}) => {
             alert('글쓰기를 실패하였습니다.');
             dispatch(resetField());
         }
-    }, [postError, history])
+    }, [postError, history, dispatch])
 
     return (
         <div>
