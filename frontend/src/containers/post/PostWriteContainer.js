@@ -93,12 +93,11 @@ const PostWriteContainer = ({history}) => {
         if(isSubmit && postError === null) {
             alert('글쓰기가 완료되었습니다.');
             history.push('/');
-            setIsSubmit(false);
         } 
         else if(postError !== null) {
             alert('글쓰기를 실패하였습니다.');
-            setIsSubmit(false);
         }
+        setIsSubmit(false);
     }, [isSubmit, postError, history])
     return (
         <div>

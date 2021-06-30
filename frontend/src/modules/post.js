@@ -24,7 +24,7 @@ const initialState = {
     hashtag : '',
     hashtags : [],
     posts : [],
-    postError : false,
+    postError : null,
 }
 
 const post = handleActions(
