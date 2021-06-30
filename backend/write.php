@@ -41,11 +41,11 @@
     for($i=0; $i<count($targets); $i++) {
         $content = preg_replace($pattern, 'src="'.$targets[$i].'"', $content, 1);
     }
-    echo "insert into post(title, content, author) values('${title}', '${content}', '${id}')";
+    $sql = mysqli_query($conn, "insert into post(title, content, author) values('${title}', '${content}', '${id}')") or header("HTTP/1.0 403 Forbidden");
 
     // 해쉬태그 집어넣기
     $hashtags = (array)json_decode($_POST['hashtags']);
     for($i=0; $i<count($hashtags); $i++) {
-        echo "insert into hashtags(hashtag, postId) values('".$hashtags[$i]."', (select id from post order by id desc limit 0,1))";
+        $sql = mysqli_query($conn, "insert into hashtags(hashtag, postId) values('".$hashtags[$i]."', (select id from post order by id desc limit 0,1))");
     }
 ?>
