@@ -5,5 +5,5 @@ create table comment (
 	content varchar(256) NOT NULL,
 	FOREIGN KEY(postId) REFERENCES POST(id),
 	FOREIGN KEY(author) REFERENCES USER(id)
-);
+)  ENGINE = innoDB;
 

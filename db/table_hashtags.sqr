@@ -1,6 +1,6 @@
 create table hashtags(
     hashtag varchar(255) NOT NULL,
     postId int NOT NULL,
-    FOREIGN KEY(postId) REFERENCES POST(ID)
-);
+    FOREIGN KEY(postId) REFERENCES post(ID)
+)  ENGINE = innoDB;
 

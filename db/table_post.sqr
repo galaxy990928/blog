@@ -5,4 +5,4 @@ CREATE TABLE POST(
     create_time DATETIME DEFAULT now(),
     author varchar(20) NOT NULL,
     FOREIGN KEY(author) REFERENCES USER(id)
-);
+)  ENGINE = innoDB;
