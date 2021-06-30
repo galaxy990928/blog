@@ -43,7 +43,7 @@ const post = handleActions(
         [WRITE_SUCCESS] : (state, paylaod) => (
             {
                 ...state,
-                postError : true,
+                postError : false,
             }
         ),
         [WRITE_FAILURE] : (state, {payload : e}) => (

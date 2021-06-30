@@ -88,12 +88,12 @@ const PostWriteContainer = ({history}) => {
     
 
     useEffect(() => {
-        if(postError === true) {
+        if(postError === false) {
             alert('글쓰기가 완료되었습니다.');
             dispatch(resetField());
             history.push('/');
         } 
-        else if(postError !== null && postError !== true) {
+        else if(postError !== null && postError !== false) {
             alert('글쓰기를 실패하였습니다.');
             dispatch(resetField());
         }
