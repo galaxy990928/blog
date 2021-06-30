@@ -40,10 +40,10 @@ const post = handleActions(
             posts : [],
             postError : e,
         }),
-        [WRITE_SUCCESS] : (state, paylaod) => (
+        [WRITE_SUCCESS] : (state, {paylaod : post}) => (
             {
                 ...state,
-                postError : true,
+                postError : post,
             }
         ),
         [WRITE_FAILURE] : (state, {payload : e}) => (
